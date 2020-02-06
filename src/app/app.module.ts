@@ -1,3 +1,4 @@
+import { MomentPipe } from './shared/moment.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,7 +12,8 @@ import { OrginizerComponent } from './orginizer/orginizer.component';
     AppComponent,
     CalendarComponent,
     SelectorComponent,
-    OrginizerComponent
+    OrginizerComponent,
+    MomentPipe,
   ],
   imports: [
     BrowserModule
