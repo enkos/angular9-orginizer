@@ -1,1 +1,20 @@
-<p>calendar works!</p>
+<table class="w-full table-auto">
+    <thead>
+        <tr>
+            <th class="px-4 py-2 text-right border">Пн</th>
+            <th class="px-4 py-2 text-right border">Вт</th>
+            <th class="px-4 py-2 text-right border">Ср</th>
+            <th class="px-4 py-2 text-right border">Чт</th>
+            <th class="px-4 py-2 text-right border">Пт</th>
+            <th class="px-4 py-2 text-right border">Сб</th>
+            <th class="px-4 py-2 text-right border">Вс</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let week of calendar">
+            <td *ngFor="let day of week.days" class="text-right border">
+                <span class="px-4">{{ day.value | moment: 'D' }}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
