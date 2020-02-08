@@ -12,8 +12,21 @@
     </thead>
     <tbody>
         <tr *ngFor="let week of calendar">
-            <td *ngFor="let day of week.days" class="text-right border">
-                <span class="px-4">{{ day.value | moment: 'D' }}</span>
+            <td
+                *ngFor="let day of week.days"
+                class="text-right border h-32 hover:bg-gray-200"
+                valign="top"
+                [class.opacity-25]="day.isDisabled"
+                (click)="select(day.value)"
+                >
+                <span
+                    class="inline-block p-1 m-3 rounded-full text-xs"
+                    [class.bg-red-600]="day.isActive"
+                    [class.bg-blue-600]="day.isSelected"
+                    [class.text-white]="day.isActive || day.isSelected"
+                    >
+                    {{ day.value | moment: 'D' }}
+                </span>
             </td>
         </tr>
     </tbody>
