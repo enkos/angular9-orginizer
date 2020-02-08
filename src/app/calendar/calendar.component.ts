@@ -28,10 +28,14 @@ export class CalendarComponent implements OnInit {
     this.dateService.date.subscribe(this.generate.bind(this))
   }
 
+  select(day: moment.Moment) {
+    this.dateService.changeDate(day)
+  }
+
   generate(now: moment.Moment) {
-    const startDay = now.clone().startOf('month').startOf('week')
-    const endDay = now.clone().endOf('month').endOf('week')
-    const date = startDay.clone()
+    const startDay = now.clone().startOf('month').startOf('isoWeek')
+    const endDay = now.clone().endOf('month').endOf('isoWeek')
+    const date = startDay.clone().subtract(1, 'day')
     const calendar = []
 
     while (date.isBefore(endDay, 'day')) {
