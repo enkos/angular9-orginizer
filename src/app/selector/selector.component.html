@@ -1,5 +1,10 @@
-<div class="flex items-center justify-center">
-    <button (click)="go(-1)" class="py-2 px-4 bg-gray-200 border rounded">←</button>
-    <span class="mx-4">{{ dateService.date | async | moment }}</span>
-    <button (click)="go(1)" class="py-2 px-4 bg-gray-200 border rounded">→</button>
+<div class="flex items-center justify-between">
+    <div>
+        <span>{{ dateService.date | async | moment }}</span>
+    </div>
+    <div>
+        <button (click)="go(-1)" class="py-2 px-4 bg-gray-200 border rounded">←</button>
+        <button (click)="today()" class="py-2 px-4 bg-gray-200 border rounded">Сегодня</button>
+        <button (click)="go(1)" class="py-2 px-4 bg-gray-200 border rounded">→</button>
+    </div>
 </div>

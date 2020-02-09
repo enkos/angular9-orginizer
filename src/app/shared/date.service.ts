@@ -20,4 +20,8 @@ export class DateService {
         })
         this.date.next(value)
     }
+
+    setToday() {
+        this.date.next(moment())
+    }
 }

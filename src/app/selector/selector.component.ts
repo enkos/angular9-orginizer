@@ -14,4 +14,8 @@ export class SelectorComponent {
     this.dateService.changeMonth(dir)
   }
 
+  today() {
+    this.dateService.setToday()
+  }
+
 }
