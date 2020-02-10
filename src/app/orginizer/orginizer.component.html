@@ -1,1 +1,21 @@
-<p>orginizer works!</p>
+<section class="border p-4">
+    <header class="mb-4">Organizer: {{ dateSerice.date | async | moment:'DD/MM/YYYY' }}</header>
+
+    <main class="mb-4">
+        <ul>
+            <li *ngFor="let task of tasks" class="flex justify-between mb-2">
+                <div>
+                    <span class="mr-2 py-1">{{task.title}}</span>
+                </div>
+                <button class="px-2 py-1 bg-red-200">⨯</button>
+            </li>
+        </ul>
+    </main>
+
+    <footer class="mb-4">
+        <form (ngSubmit)="submit()" [formGroup]="form">
+            <input type="text" class="w-full mb-2 py-2 px-4 border rounded" placeholder="Название задачи" formControlName="title">
+            <button [class.cursor-not-allowed]="form.invalid" [disabled]="form.invalid" type="submit" class="w-full py-2 px-4 bg-gray-200 border rounded">Добавить</button>
+        </form>
+    </footer>
+</section>
