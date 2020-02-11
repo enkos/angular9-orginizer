@@ -37,6 +37,7 @@ export class OrginizerComponent implements OnInit {
     }
 
     this.tasksService.create(task).subscribe(task => {
+      this.tasks.push(task)
       this.form.reset()
     }, err => {
       console.error(err)
