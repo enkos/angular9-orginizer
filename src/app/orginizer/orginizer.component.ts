@@ -44,4 +44,14 @@ export class OrginizerComponent implements OnInit {
     })
   }
 
+  remove(task: Task) {
+    this.tasksService.remove(task).subscribe(() => {
+      this.tasks = this.tasks.filter(t => {
+        return t.id !== task.id
+      })
+    }, err => {
+      console.error(err)
+    })
+  }
+
 }
